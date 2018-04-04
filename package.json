@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "eventful-node": "^1.1.1",
+    "inquirer": "^5.2.0"
+  }
+}
