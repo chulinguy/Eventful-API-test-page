@@ -15,13 +15,15 @@ const connection = mysql.createConnection({
 const mySqlConnect = () => {
   connection.connect((err) =>{
     if (err) throw err;
+
     console.log('Welcome to Eventonica')
     console.log("connected as Administrator");
-    })
-  }
 
-// *Uncomment below line once you have mySQL setup 
+    app.startQuestion(() => connection.end());
+  })
+}
+
+// *Uncomment below line once you have mySQL setup
 
 // mySqlConnect();
 
-app.startQuestion();
