@@ -24,7 +24,7 @@ app.startQuestion = (closeConnectionCallback) => {
     if (res.action === 'Mark an existing user to attend an event in database') app.matchUserWithEvent(continueCallback);
     if (res.action === 'See all events that a particular user is going to') app.seeEventsOfOneUser(continueCallback);
     if (res.action === 'See all the users that are going to a particular event') app.seeUsersOfOneEvent(continueCallback);
-    if(res.action === 'Exit') {
+    if (res.action === 'Exit') {
       closeConnectionCallback();
       return;
     }
