@@ -34,9 +34,25 @@ app.startQuestion = (closeConnectionCallback) => {
 app.completeSentence = (continueCallback) => {
   //YOUR WORK HERE
 
-  console.log('Please write code for this function');
+  inquirer.prompt({
+    type: 'input',
+    message: 'What\'s your favorite color ?',
+    name: 'action'
+  }).then((res) => {
+    var color = res.action;
+
+    inquirer.prompt({
+      type: 'input',
+      message: 'What\'s your favorite item ?',
+      name: 'action'
+    }).then((res)=> {
+      console.log(color, res.action);
+    }).then(continueCallback);
+  })
+  
+
   //End of your work
-  continueCallback();
+  //continueCallback();
 }
 
 app.createNewUser = (continueCallback) => {
