@@ -1,3 +1,4 @@
+
 //require packages
 const mysql = require("mysql");
 const mySqlKey = require('./keys').mySql;
@@ -12,6 +13,10 @@ const connection = mysql.createConnection({
   database: "eventonica"
 });
 
+const connection = require('./connection');
+const app = require('./app');
+
+
 const mySqlConnect = () => {
   connection.connect((err) =>{
     if (err) throw err;
@@ -20,6 +25,8 @@ const mySqlConnect = () => {
     console.log("connected as Administrator");
 
     app.startQuestion(() => connection.end(), connection);
+
+    app.startQuestion(()=>{ connection.end() });
   })
 }
 

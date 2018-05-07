@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
+//connection available to all
+const connection = require('./connection');
 
 const app = {};
+
 app.startQuestion = (closeConnectionCallback) => {
   inquirer.prompt({
     type: 'list',
@@ -50,6 +53,9 @@ app.completeSentence = (continueCallback) => {
     }).then(continueCallback);
   })
   
+
+
+  console.log('Please write code for this function');
 
   //End of your work
   //continueCallback();
