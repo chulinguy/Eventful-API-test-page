@@ -61,7 +61,7 @@ app.createNewUser = (continueCallback) => {
     type: 'input',
     message: 'What\'s your name?',
     name: 'action'
-  }). then((res) => {
+  }).then((res) => {
     var name = res.action;
 
     inquirer.prompt({

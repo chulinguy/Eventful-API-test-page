@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: mySqlKey,
-  database: "eventFinder"
+  database: "eventonica"
 });
 
 const mySqlConnect = () => {
@@ -19,7 +19,7 @@ const mySqlConnect = () => {
     console.log('Welcome to Eventonica')
     console.log("connected as Administrator");
 
-    app.startQuestion(() => connection.end());
+    app.startQuestion(() => connection.end(), connection);
   })
 }
 
