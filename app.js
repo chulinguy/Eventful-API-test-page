@@ -1,7 +1,10 @@
 const inquirer = require('inquirer');
+//connection available to all
+const connection = require('./connection');
 
 const app = {};
-app.startQuestion = (closeConnectionCallback, connection) => {
+
+app.startQuestion = (closeConnectionCallback) => {
   inquirer.prompt({
     type: 'list',
     message: 'What action would you like to do?',
@@ -33,7 +36,6 @@ app.startQuestion = (closeConnectionCallback, connection) => {
 
 app.completeSentence = (continueCallback) => {
   //YOUR WORK HERE
-
   console.log('Please write code for this function');
   //End of your work
   continueCallback();
