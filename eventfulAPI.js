@@ -3,7 +3,7 @@ const eventful = require('eventful-node');
 const client = new eventful.Client(eventfulKey);
 
 //sample search, try running it to see it in action
-client.searchEvents({ 
+client.searchEvents({
   keywords: 'tango',
   location: 'San Francisco',
   date: "Next Week"
@@ -12,7 +12,7 @@ client.searchEvents({
      return console.error(err);
    }
    let resultEvents = data.search.events.event;
-   console.log('Recieved ' + data.search.total_items + ' events');
+   console.log('Received ' + data.search.total_items + ' events');
    console.log('Event listings: ');
    for ( let i =0 ; i < resultEvents.length; i++){
      console.log("===========================================================")

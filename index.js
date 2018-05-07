@@ -9,19 +9,21 @@ const connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: mySqlKey,
-  database: "eventFinder"
+  database: "eventonica"
 });
 
 const mySqlConnect = () => {
   connection.connect((err) =>{
     if (err) throw err;
+
     console.log('Welcome to Eventonica')
     console.log("connected as Administrator");
-    })
-  }
 
-// *Uncomment below line once you have mySQL setup 
+    app.startQuestion(() => connection.end(), connection);
+  })
+}
+
+// *Uncomment below line once you have mySQL setup
 
 // mySqlConnect();
 
-app.startQuestion();
