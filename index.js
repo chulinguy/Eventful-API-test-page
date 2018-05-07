@@ -25,5 +25,5 @@ const mySqlConnect = () => {
 
 // *Uncomment below line once you have mySQL setup
 
-// mySqlConnect();
+mySqlConnect();
 

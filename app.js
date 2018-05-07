@@ -34,19 +34,57 @@ app.startQuestion = (closeConnectionCallback, connection) => {
 app.completeSentence = (continueCallback) => {
   //YOUR WORK HERE
 
-  console.log('Please write code for this function');
+  inquirer.prompt({
+    type: 'input',
+    message: 'What\'s your favorite color ?',
+    name: 'action'
+  }).then((res) => {
+    var color = res.action;
+
+    inquirer.prompt({
+      type: 'input',
+      message: 'What\'s your favorite item ?',
+      name: 'action'
+    }).then((res)=> {
+      console.log(color, res.action);
+    }).then(continueCallback);
+  })
+  
+
   //End of your work
-  continueCallback();
+  //continueCallback();
 }
 
 app.createNewUser = (continueCallback) => {
   //YOUR WORK HERE
+  inquirer.prompt({
+    type: 'input',
+    message: 'What\'s your name?',
+    name: 'action'
+  }). then((res) => {
+    var name = res.action;
 
-  console.log('Please write code for this function');
-  //End of your work
-  continueCallback();
+    inquirer.prompt({
+      type: 'input',
+      message: 'How old are you?',
+      name: 'action'
+    }).then((res) => {
+      var age = res.action;
 
+      inquirer.prompt({
+        type: 'input',
+        message: 'What\'s your gender?',
+        name: 'action'
+      }).then((res)=> {
+        console.log(name, age, res.action);
+      }).then(continueCallback);
+    })
+  })
 }
+
+ // console.log('Please write code for this function');
+ //End of your work
+ // continueCallback();
 
 app.searchEventful = (continueCallback) => {
   //YOUR WORK HERE
