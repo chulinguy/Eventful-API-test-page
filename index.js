@@ -17,8 +17,8 @@ const mySqlConnect = () => {
     if (err) throw err;
     console.log('Welcome to Eventonica')
     console.log("connected as Administrator");
-    })
-  }
+  })
+}
 
 // *Uncomment below line once you have mySQL setup 
 
