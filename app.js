@@ -57,12 +57,34 @@ app.completeSentence = (continueCallback) => {
 
 app.createNewUser = (continueCallback) => {
   //YOUR WORK HERE
+  inquirer.prompt({
+    type: 'input',
+    message: 'What\'s your name?',
+    name: 'action'
+  }). then((res) => {
+    var name = res.action;
 
-  console.log('Please write code for this function');
-  //End of your work
-  continueCallback();
+    inquirer.prompt({
+      type: 'input',
+      message: 'How old are you?',
+      name: 'action'
+    }).then((res) => {
+      var age = res.action;
 
+      inquirer.prompt({
+        type: 'input',
+        message: 'What\'s your gender?',
+        name: 'action'
+      }).then((res)=> {
+        console.log(name, age, res.action);
+      }).then(continueCallback);
+    })
+  })
 }
+
+ // console.log('Please write code for this function');
+ //End of your work
+ // continueCallback();
 
 app.searchEventful = (continueCallback) => {
   //YOUR WORK HERE
