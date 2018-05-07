@@ -1,18 +1,10 @@
 const inquirer = require('inquirer');
+//connection available to all
+const connection = require('./connection');
 
 const app = {};
 
-app.initialize = (connection) => {
-  //makes connection assessible to the rest of the app  
-  app.connection = connection;  
-  app.startQuestion(() => {
-    app.connection.end();
-  })
-
-}
-
 app.startQuestion = (closeConnectionCallback) => {
-
   inquirer.prompt({
     type: 'list',
     message: 'What action would you like to do?',
