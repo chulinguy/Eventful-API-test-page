@@ -1,6 +1,11 @@
 const inquirer = require('inquirer');
 //connection available to all
 const connection = require('./connection');
+//find event
+const eventfulKey = require("./keys.js").eventful;
+const eventful = require('eventful-node');
+const client = new eventful.Client(eventfulKey);
+const findEvents = require('./eventfulAPI.js');
 
 const app = {};
 
@@ -84,10 +89,14 @@ app.createNewUser = (continueCallback) => {
 
 app.searchEventful = (continueCallback) => {
   //YOUR WORK HERE
-
-  console.log('Please write code for this function');
+  inquirer.prompt({
+    type: 'input',
+    name: 'event',
+    message: 'What event do you want to search for?'
+  }).then((res) => {
+    findEvents(res.event);
+  }).then(continueCallback);
   //End of your work
-  continueCallback();
 }
 
 app.matchUserWithEvent = (continueCallback) => {
