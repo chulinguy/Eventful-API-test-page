@@ -70,9 +70,10 @@ app.createNewUser = (continueCallback) => {
     message: 'What is your email address?'
   }]).then((res) => {
     console.log(`Fullname: ${res.first_name} ${res.last_name}, Age: ${res.age}, Email: ${res.email}`);
-    connection.query("INSERT INTO Users (first_name, last_name, age, email) VALUES (res.first_name, res.last_name, res.age, res.email)", function(err, result) {
+    var sql = "INSERT INTO Users (first_name, last_name, age, email) VALUES ('John', 'Doe', '24', 'jdoe@gmail.com')";
+    connection.query(sql, function(err, result) {
       if (err) throw err;
-      console.log("rows[0]");
+      console.log(result);
     });
 
   }).then(continueCallback);
