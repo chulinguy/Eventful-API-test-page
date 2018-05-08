@@ -1,14 +1,13 @@
 const inquirer = require('inquirer');
 //connection available to all
 const connection = require('./connection');
-
-const app = {};
-
+//find event
 const eventfulKey = require("./keys.js").eventful;
 const eventful = require('eventful-node');
 const client = new eventful.Client(eventfulKey);
+const findEvents = require('./eventfulAPI.js');
 
-
+const app = {};
 
 app.startQuestion = (closeConnectionCallback) => {
   inquirer.prompt({
@@ -94,11 +93,17 @@ app.searchEventful = (continueCallback) => {
     name: 'event',
     message: 'What event do you want to search for?'
   }).then((res) => {
-    console.log('I like to go to hip hop concerts ${}')
-  })
-  //End of your work
-  continueCallback();
+     findEvents(res.event);
+ }).then((req) => {
+   inquirer.prompt({
+     type: 'input',
+     name: 'event',
+     message: 'Do you want to save this event to the database?'
+   })
+ })
+
 }
+
 
 app.matchUserWithEvent = (continueCallback) => {
   //YOUR WORK HERE
