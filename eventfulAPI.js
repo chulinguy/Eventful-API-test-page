@@ -53,16 +53,10 @@ function findEvents (optionsObj){
          if (error) throw error;
        });
      } else {
-       //go back to step 1 question: what do you want to search
-       
+       //if no, go back to step 1 question: what do you want to search
+
      }
    })
-   // .then((res) => {
-   //   if(res.toDatabase === 'no') {
-   //     app.searchEventful();
-   //   }
-   // })
-  });
 }
 
 //export a custom function that searches via Eventful API, displays the results AND stores some of the data into MySQL
