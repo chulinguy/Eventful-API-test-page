@@ -94,10 +94,8 @@ app.searchEventful = (continueCallback) => {
     name: 'event',
     message: 'What event do you want to search for?'
   }).then((res) => {
-    console.log()
+    console.log('I like to go to hip hop concerts ${}')
   })
-
-  console.log('Please write code for this function');
   //End of your work
   continueCallback();
 }
