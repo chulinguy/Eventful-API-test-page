@@ -95,7 +95,7 @@ app.searchEventful = (continueCallback) => {
     message: 'What event do you want to search for?'
   }).then((res) => {
     findEvents(res.event);
-  }).then(continueCallback);
+  })
   //End of your work
 }
 
