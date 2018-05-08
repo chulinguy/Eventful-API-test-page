@@ -69,11 +69,13 @@ app.createNewUser = (continueCallback) => {
     name: 'email',
     message: 'What is your email address?'
   }]).then((res) => {
+    //res gives us an obj with the "name" as the key and the value = user's input
     console.log(`Fullname: ${res.first_name} ${res.last_name}, Age: ${res.age}, Email: ${res.email}`);
-    var sql = "INSERT INTO Users (first_name, last_name, age, email) VALUES ('John', 'Doe', '24', 'jdoe@gmail.com')";
-    connection.query(sql, function(err, result) {
-      if (err) throw err;
-      console.log(result);
+
+    var post = {first_name: res.first_name, last_name: res.last_name, age: res.age, email: res.email};
+
+    connection.query("INSERT INTO Users SET ?", post, function(error, results, fields) {
+      if (error) throw error;
     });
 
   }).then(continueCallback);
