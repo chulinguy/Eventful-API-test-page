@@ -8,11 +8,10 @@ const mySqlConnect = () => {
     console.log('Welcome to Eventonica')
     console.log("connected as Administrator");
 
-    app.startQuestion(()=>{ connection.end() });
+    app.startQuestion(() => { connection.end() });
   })
 }
 
 // *Uncomment below line once you have mySQL setup
 
 mySqlConnect();
-
