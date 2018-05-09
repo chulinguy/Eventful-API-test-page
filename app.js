@@ -88,20 +88,32 @@ app.createNewUser = (continueCallback) => {
 }
 
 app.searchEventful = (continueCallback) => {
+  // ask user what event to search for
   inquirer.prompt({
     type: 'input',
     name: 'event',
     message: 'What event do you want to search for?'
   }).then((res) => {
-     findEvents(res.event);
- }).then((req) => {
-   inquirer.prompt({
-     type: 'input',
-     name: 'event',
-     message: 'Do you want to save this event to the database?'
-   })
- })
 
+    findEvents(res.event, (eventList) => {
+      inquirer.prompt({
+    type: 'input',
+    name: 'toDatabase',
+    message: 'Do you want to send this event to the database (yes/no)?',
+  }).then((res) => {
+    if(res.toDatabase === 'y' || res.toDatabase === 'Y' || res.toDatabase === 'yes') {
+      var post = eventList;
+      connection.query("INSERT INTO eventtable SET ?", post, function(error, results, fields) {
+        if (error) throw error;
+      });
+    }
+      //if no, go back to step 1 question: what do you want to search
+      continueCallback();
+
+  })
+    });
+  })
+  //End of your work
 }
 
 
